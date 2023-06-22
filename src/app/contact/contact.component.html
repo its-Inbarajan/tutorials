@@ -1,0 +1,92 @@
+<div class="contact-form">
+  <div class="card continer-fluid">
+    <div class="row">
+      <div class="col-12 mt-4 p-4">
+        <figure>
+          <img src="../../assets/image/contact-header.svg" class="card-img" width="362" height="108" alt="">
+        </figure>
+      </div>
+      <div class="mx-4 mb-4">
+        <h4>For business enquiries, pleace contact me at <a href="mailto:rajaninba6@gmail.com">rajaninba6@gmail.com</a>
+        </h4>
+
+      </div>
+      <form novalidate [formGroup]="contactForm" (submit)="submitAction()">
+        <div class="row">
+          <div class="col-sm-8 mb-2 mx-4">
+            <label class="form-label">Name *</label>
+            <input type="text" class="form-control" formArrayName="name" required>
+          </div>
+          <div class="col-sm-8 mb-2 mx-4">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-control" formArrayName="email" required>
+          </div>
+          <div class="col-sm-11 mb-2 mx-4">
+            <label class="form-label">Message *</label>
+            <textarea class="form-control" cols="70" formControlName="message" rows="10"></textarea>
+          </div>
+          <div class="col-sm-10 mx-4 mt-2 mb-2">
+            <button class="btn btn-sm btn-success" type="submit">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="side-bar">
+    <div class="card">
+      <div class="card-head">
+        <h4>
+          <b>
+            follow Me on Socials
+          </b>
+        </h4>
+        <div class="row">
+          <div class="col-6 ml-4 mt-4 d-flex gap-3">
+            <div class="icon-bg">
+              <a href="https://github.com/rajan952" target="_blank"><i class="bi bi-twitter"></i></a>
+            </div>
+            <div class="icon-bg">
+              <a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="icon-bg">
+              <a href="" target="_blank"><i class="bi bi-github"></i></a>
+            </div>
+            <div class="icon-bg">
+              <a href="" target="_blank"><i class="bi bi-rss-fill"></i></a>
+            </div>
+            <div class="icon-bg">
+              <a href="" target="_blank"><i class="bi bi-stack-overflow"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <!-- <ng-template> -->
+      <div class="text-center p-2">
+        <h1>Popular Tutorials</h1>
+      </div>
+      <div class="card border">
+        <a href="">
+          <figure>
+            <img src="../../assets/image/demo.png" class="card-img" alt="">
+          </figure>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </a>
+      </div>
+      <div class="card border">
+        <a href="">
+          <figure>
+            <img src="../../assets/image/demo.png" class="card-img" alt="">
+          </figure>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </a>
+      </div>
+    <!-- </ng-template> -->
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

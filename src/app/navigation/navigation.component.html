@@ -1,0 +1,35 @@
+
+<mat-toolbar class="header mat-elevation-z8 sticky-top continer-fluid" >
+  <mat-icon>code</mat-icon><span routerLink="/home">DevlopersTags</span>
+  <div class="spacer"></div>
+  <a mat-button routerLink="/home" ngbTooltip="Home"><mat-icon>home</mat-icon>Home</a>
+    <button mat-button #r="matMenuTrigger" [matMenuTriggerFor]="dropdown"><mat-icon (mouseover)="open(r)">mode edit</mat-icon>Tutorials</button>
+
+    <mat-menu #dropdown="matMenu"  class="dropdown"   [overlapTrigger]="false" >
+
+        <a mat-menu-item ngbTooltip="IOS" routerLink="/ios" id="btn"><i class="bi bi-apple"></i>IOS</a>
+        <button mat-menu-item ngbTooltip="Android" routerLink="/android"><i class="bi bi-android"></i>Android</button>
+
+    </mat-menu>
+
+    <a mat-button routerLink="/contact" ngbTooltip="Contact"><mat-icon>mail</mat-icon>Contact</a>
+    <button mat-button (click)="openModal()" ngbTooltip="login"><mat-icon>login</mat-icon></button>
+    <button mat-button (click)="openModalSearch(openPop)" ngbTooltip="Search"><i class="bi bi-search"></i></button>
+  </mat-toolbar>
+
+
+  <ng-template #openPop>
+    <div class="row">
+    <div class="card">
+    <div class="col-sm-12 mt-4 mb-4">
+      <div class="search-input">
+        <input type="text" class="form-control" placeholder="Search" />
+        <i class="search-icon bi bi-search"></i>
+      </div>
+      </div>
+      <div class="text-center mt-2 mb-3">
+        <button class="btn btn-sm btn-outline-dark">Search</button>
+      </div>
+    </div>
+  </div>
+  </ng-template>
