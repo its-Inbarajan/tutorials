@@ -1,46 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { FormBuilder, FormGroup, NgModel } from '@angular/forms';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../login/login.component';
-
-
-
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-
-  styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-
-  public modalReference : any
-  constructor (
+  dropdownMenu : any
+  constructor(
     private modalService: NgbModal,
-    ) { }
+  ) { }
 
   ngOnInit() {
-
   }
 
-
-  //drop down
-  open(dropdown : any){
-    dropdown.openMenu()
-  }
-
-  openModal(){
-    this.modalReference = this.modalService.open(LoginComponent,{
-      size : 'md',
-      centered: true
+  openPop(popUp : any){
+    this.modalService.open(popUp,{
+      centered : true,
+      size : "md"
     })
   }
-  public openModalSearch(openPop :any){
-    this.modalReference = this.modalService.open(openPop,{
-      size : 'md',
-      centered: true
+  openLoginPop(popUp : any){
+    this.modalService.open(LoginComponent,{
+      centered : true,
+      size : "md"
+    })
+
+
+  }
+
+  toggle(NavpopUp :any){
+    this.modalService.open(NavpopUp,{
+      centered : true,
+      size : "md"
     })
   }
+
+  // dropdwon PopUp
+  dropPopUp(dropUp :any){
+    this.modalService.open(dropUp,{
+      centered : true,
+      size : "sm"
+    });
+
+    console.log(dropUp);
+
+  }
+
 }

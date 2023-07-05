@@ -1,9 +1,9 @@
-<div class="contact-form">
+<div class="contact-form ">
+  <div class="row mx-4">
   <div class="card continer-fluid">
-    <div class="row">
-      <div class="col-12 mt-4 p-4">
+      <div class="col-12 mt-4">
         <figure>
-          <img src="../../assets/image/contact-header.svg" class="card-img" width="362" height="108" alt="">
+          <img src="../../assets/image/contact-header.svg" class="card-img" width="362" height="108" alt="" />
         </figure>
       </div>
       <div class="mx-4 mb-4">
@@ -15,7 +15,7 @@
         <div class="row">
           <div class="col-sm-8 mb-2 mx-4">
             <label class="form-label">Name *</label>
-            <input type="text" class="form-control" formArrayName="name" required>
+            <input type="text" class="form-control " formArrayName="name" required>
           </div>
           <div class="col-sm-8 mb-2 mx-4">
             <label class="form-label">Email *</label>
@@ -30,63 +30,73 @@
           </div>
         </div>
       </form>
+
     </div>
   </div>
 
   <div class="side-bar">
-    <div class="card">
+  <div class="card">
       <div class="card-head">
         <h4>
-          <b>
-            follow Me on Socials
-          </b>
+          <b>follow Me on Socials</b>
         </h4>
-        <div class="row">
-          <div class="col-6 ml-4 mt-4 d-flex gap-3">
-            <div class="icon-bg">
-              <a href="https://github.com/rajan952" target="_blank"><i class="bi bi-twitter"></i></a>
-            </div>
-            <div class="icon-bg">
-              <a href="" target="_blank"><i class="bi bi-linkedin"></i></a>
-            </div>
-            <div class="icon-bg">
-              <a href="" target="_blank"><i class="bi bi-github"></i></a>
-            </div>
-            <div class="icon-bg">
-              <a href="" target="_blank"><i class="bi bi-rss-fill"></i></a>
-            </div>
-            <div class="icon-bg">
-              <a href="" target="_blank"><i class="bi bi-stack-overflow"></i></a>
-            </div>
+        <div class="row mb-2">
+          <ul>
+          <div class="col-sm-6 d-flex gap-3">
+            <li><div class="icon-bg">
+              <a href="" ngbTooltip="twitter"><i class="bi bi-twitter"></i></a>
+            </div></li>
+          <li> <div class="icon-bg">
+              <a href="" ngbTooltip="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div></li>
+          <li> <div class="icon-bg">
+              <a href="" ngbTooltip="github"><i class="bi bi-github"></i></a>
+            </div></li>
+          <li><div class="icon-bg">
+              <a href="" ngbTooltip="rss"><i class="bi bi-rss-fill"></i></a>
+            </div></li>
+          <li><div class="icon-bg">
+              <a href="" ngbTooltip="stack-overflow"><i class="bi bi-stack-overflow"></i></a>
+            </div></li>
           </div>
+        </ul>
         </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <!-- <ng-template> -->
-      <div class="text-center p-2">
-        <h1>Popular Tutorials</h1>
-      </div>
-      <div class="card border">
-        <a href="">
-          <figure>
-            <img src="../../assets/image/demo.png" class="card-img" alt="">
-          </figure>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </a>
-      </div>
-      <div class="card border">
-        <a href="">
-          <figure>
-            <img src="../../assets/image/demo.png" class="card-img" alt="">
-          </figure>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </a>
-      </div>
-    <!-- </ng-template> -->
     </div>
   </div>
+
+  <div class="card">
+    <div class="text-center p-1 ">
+      <h1>Popular Tutorials</h1>
+    </div>
+    <div class="card border border-dark">
+      <a href="">
+        <figure>
+          <img src="../../assets/image/demo.png" class="card-img" alt="">
+        </figure>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </a>
+    </div>
+    <div class="card border border-dark">
+      <a href="">
+        <figure>
+          <img src="../../assets/image/demo.png" class="card-img" alt="">
+        </figure>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </a>
+    </div>
+    <div class="card border border-dark">
+      <a href="">
+        <figure>
+          <img src="../../assets/image/demo.png" class="card-img" alt="">
+        </figure>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </a>
+    </div>
+  </div>
+
+
+  </div>
+
 </div>
 
 <app-footer></app-footer>

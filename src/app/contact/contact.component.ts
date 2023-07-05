@@ -49,7 +49,7 @@ export class ContactComponent implements OnInit {
    public submitAction(){
     if(this.contactForm.valid){
 
-      this.toastr.success('Login Scuess');
+      this.toastr.success('Sending Scuess');
     }
   }
 

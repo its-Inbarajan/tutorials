@@ -1,35 +1,112 @@
+<mat-toolbar class="header mat-elevation-z8 container-fluid toolbar">
+  <span><i class="bi bi-android2"></i>DevlopersTags</span>
 
-<mat-toolbar class="header mat-elevation-z8 sticky-top continer-fluid" >
-  <mat-icon>code</mat-icon><span routerLink="/home">DevlopersTags</span>
   <div class="spacer"></div>
-  <a mat-button routerLink="/home" ngbTooltip="Home"><mat-icon>home</mat-icon>Home</a>
-    <button mat-button #r="matMenuTrigger" [matMenuTriggerFor]="dropdown"><mat-icon (mouseover)="open(r)">mode edit</mat-icon>Tutorials</button>
 
-    <mat-menu #dropdown="matMenu"  class="dropdown"   [overlapTrigger]="false" >
+  <div fxShow="true" fxHide.lt-md="true">
+  <button mat-button routerLink="/home" ngbTooltip="home"><i class="bi bi-house-fill" ></i>Home</button>
 
-        <a mat-menu-item ngbTooltip="IOS" routerLink="/ios" id="btn"><i class="bi bi-apple"></i>IOS</a>
-        <button mat-menu-item ngbTooltip="Android" routerLink="/android"><i class="bi bi-android"></i>Android</button>
+  <button mat-button [matMenuTriggerFor]="menu" ngbTooltip="Tutorials"><i class="bi bi-vector-pen"></i>Tutorials</button>
+<mat-menu #menu="matMenu" class="dropdown">
+  <button mat-menu-item routerLink="/ios" ngbTooltip="Ios"><i class="bi bi-apple"></i>IOS</button>
+  <button mat-menu-item routerLink="/android" ngbTooltip="Android"><i class="bi bi-android"></i>Android</button>
+</mat-menu>
 
-    </mat-menu>
+<a href="" mat-button routerLink="/contact" ngbTooltip="Contact"><i class="bi bi-envelope-fill"></i>Contact</a>
 
-    <a mat-button routerLink="/contact" ngbTooltip="Contact"><mat-icon>mail</mat-icon>Contact</a>
-    <button mat-button (click)="openModal()" ngbTooltip="login"><mat-icon>login</mat-icon></button>
-    <button mat-button (click)="openModalSearch(openPop)" ngbTooltip="Search"><i class="bi bi-search"></i></button>
-  </mat-toolbar>
+  <button mat-button (click)="openPop(popUp)" ngbTooltip="Search"><i class="bi bi-search"></i></button>
+  <button mat-button (click)="openLoginPop(popUp)" ngbTooltip="Login"><i class="bi bi-box-arrow-in-right"></i></button>
+</div>
+
+  <div fxShow="true" fxHide.gt-sm="true">
+    <a (click)="toggle(NavpopUp)"><i class="bi bi-list"></i>Menu</a>
+  </div>
+</mat-toolbar>
+
+<!-- mobile width navigation -->
 
 
-  <ng-template #openPop>
-    <div class="row">
+
+<!-- <div fxLayout="column">
+
+    <mat-sidenav #sidenav fxLayout="column" class="responsive-side-nav">
+      <div fxLayout="column">
+        <a (click)="sidenav.toggle()" mat-button>Close</a>
+        <button mat-button routerLink="/home"><i class="bi bi-house-fill"></i>Home</button>
+
+        <button mat-button [matMenuTriggerFor]="menu"><i class="bi bi-vector-pen"></i>Tutorials</button>
+        <mat-menu #menu="matMenu" class="dropdown">
+          <button mat-menu-item routerLink="/ios"><i class="bi bi-apple"></i>IOS</button>
+          <button mat-menu-item routerLink="/android"><i class="bi bi-android"></i>Android</button>
+        </mat-menu>
+
+        <button mat-button routerLink="/contact"><i class="bi bi-envelope-fill"></i>Contact</button>
+
+        <button mat-button (click)="openPop(popUp)"><i class="bi bi-search"></i></button>
+        <button mat-button (click)="openLoginPop(popUp)"><i class="bi bi-box-arrow-in-right"></i></button>
+      </div>
+  </mat-sidenav>
+
+  </div> -->
+
+
+
+<ng-template #NavpopUp>
+
+  <div class="row">
     <div class="card">
-    <div class="col-sm-12 mt-4 mb-4">
-      <div class="search-input">
-        <input type="text" class="form-control" placeholder="Search" />
-        <i class="search-icon bi bi-search"></i>
+      <div class="col-sm-12 text-center">
+        <h1><i class="bi bi-android2"></i>DevlopersTags</h1>
       </div>
-      </div>
-      <div class="text-center mt-2 mb-3">
-        <button class="btn btn-sm btn-outline-dark">Search</button>
+      <div fxLayout="column">
+      <button mat-button routerLink="/home"><i class="bi bi-house-fill"></i>Home</button>
+
+
+       <button mat-button  (click)="dropPopUp(dropUp)"><i class="bi bi-vector-pen"></i>Tutorials</button>
+        <!-- <mat-menu #menu="matMenu" class="dropdown" [matMenuTriggerFor]="menu">
+          <button mat-menu-item routerLink="/ios"><i class="bi bi-apple"></i>IOS</button>
+          <button mat-menu-item routerLink="/android"><i class="bi bi-android"></i>Android</button>
+        </mat-menu> -->
+
+
+        <button mat-button routerLink="/contact"><i class="bi bi-envelope-fill"></i>Contact</button>
+
+        <button mat-button (click)="openPop(popUp)"><i class="bi bi-search"></i></button>
+        <button mat-button (click)="openLoginPop(popUp)"><i class="bi bi-box-arrow-in-right"></i></button>
       </div>
     </div>
   </div>
-  </ng-template>
+
+</ng-template>
+
+  <!-- search popUp -->
+<ng-template #popUp let-model>
+
+  <div class="row">
+    <div class="card">
+      <div class="col-sm-12 mt-4 mb-4">
+        <input type="text" class="form-control" name="" id="" [placeholder]="'Search Here..'" required>
+      </div>
+      <div class="mb-4 text-center">
+        <button class="btn btn-sm btn-outline-light " (click)="model.close('')">Close</button>
+        <button class="btn btn-sm btn-outline-dark ">Search</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>
+
+
+<ng-template #dropUp>
+
+  <div class="row ">
+    <div class="card ">
+      <div class="col-sm-5 mb-4 mt-4 dropdown">
+
+        <button mat-menu-item routerLink="/ios" ngbTooltip="Ios"><i class="bi bi-apple"></i>IOS</button>
+        <button mat-menu-item routerLink="/android" ngbTooltip="Android"><i class="bi bi-android"></i>Android</button>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

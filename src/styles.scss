@@ -359,7 +359,7 @@ body {
   color: #f0f3f6;
   background-color: #1d1f20;
   font-size: 20px;
-  font-weight: 400px;
+  font-weight: 800px;
 }
 // a{
 //   text-decoration: none;
@@ -372,7 +372,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
-  font-size: 19px;
+  font-size: 20px;
   color: #f0f3f6;
   filter: brightness(90%);
 }
@@ -384,6 +384,10 @@ background-color: #bc214b;
 color: #f0f3f6;
 font-size: 18px;
 font-weight: 700;
+i{
+  font-size: 19px;
+  margin: 5px;
+}
 }
 
 .dropdown{
@@ -404,8 +408,19 @@ hr{
   overflow: hidden;
   background-color: #BC2147;
   p{
-    padding: 15px;
+    margin: 10px;
+    padding: 10px;
+    color: #f0f3f6;
     font-weight: 700;
+    line-height: 1.2rem;
+    // width: 100%;
+    // height: 100%;
+    font-size: 18px;
+  }
+  h1{
+    margin: 10px;
+    padding: 10px;
+    font-weight: 500;
     color: #f0f3f6;
     width: 100%;
     height: 100%;
@@ -517,21 +532,101 @@ footer {
  li{
   list-style: none;
 }
+
+
+
+.links {
+  display: none;
+}
+
+.open {
+  display: inline-block;
+  padding-left: 6px;
+  align-items: center;
+}
+.responsive-side-nav{
+  display: flex;justify-content: space-evenly;flex-direction: row;
+  background-color: #9e1c40;
+
+ button{
+  color: #f0f3f6;
+  font-size: 18px;
+ }
+}
+
+.questions{
+  P{
+    font-size: 35px;
+    line-height: 3rem;
+    margin: 5px;
+    padding: 10px;
+  }
+
+  span{
+    color: #f0f3f6;
+    margin: 10px;
+    padding: 5px;
+  }
+}
+.content{
+  margin: 10px;
+  padding: 15px;
+  line-height: 1.2rem;
+}
+.conten__table{
+  border: 5px solid #9e1c40;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  a{
+    color: #BC2147;
+    text-decoration: none;
+    padding: 10px;
+
+  }
+  :hover{
+    opacity: 0.9;
+    color: #424749;
+  }
+}
+// infinity scroll
+// .aside{
+//   height: 400px; /* Adjust height as needed */
+//   overflow-y: auto;
+// }
+
+
 $breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
-    .aside{
+  .card{
+    display: block;
+  }
+    .aside ,.contact-form{
       display: block;
-      justify-content: space-evenly;
     }
     .contact-form{
-      width: 100%;
+      // width: 100%;
       display: block;
-      input, textarea{
-        display: grid;
-        grid: 100%;
+      .form-control{
+        display: block;
       }
     }
     .side-bar{
-      width: 100%;
+      width: 65%;
+      display: grid;
+      grid-template-rows: 11.5rem;
+      .icon-bg{
+        width: auto;
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+    }
+
+    .toolbar {
+      display: none;
     }
 }
+

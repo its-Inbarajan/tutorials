@@ -7,6 +7,7 @@ import { IosComponent } from './course/ios/ios.component';
 import { AndroidComponent } from './course/android/android.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundPageComponent } from './notfound-page/notfound-page.component';
+import { ReadingAreaComponent } from './readingArea/readingArea.component';
 
 
 const routes: Routes = [
@@ -32,8 +33,11 @@ const routes: Routes = [
     path : 'login' , component : LoginComponent
   },
   {
+    path : 'readingArea' , component : ReadingAreaComponent
+  },
+  {
     path : '**' ,pathMatch: 'full', component : NotfoundPageComponent
-  }
+  },
 ];
 
 @NgModule({

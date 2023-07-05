@@ -1,10 +1,11 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
-import { Subscription, interval ,Observable} from 'rxjs';
+import { Subscription, interval ,Observable, takeUntil, Subject} from 'rxjs';
+import { ApiService } from '../service/api.service';
 
 
 @Component({
@@ -19,14 +20,18 @@ export class LoginComponent implements OnInit {
   public ModalReference : any;
   public submit!: boolean;
   userData : any;
+  users: any[] = [];
   sub : any;
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
   constructor(
     public fb : FormBuilder,
     private modalService: NgbModal,
     public activeModal: NgbActiveModal,
     private toastr: ToastrService,
     public service : AuthService,
-    public router : Router
+    public router : Router,
+    public apiService : ApiService
   ) { }
 
   ngOnInit() {
@@ -54,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.service.getByCode(this.userForm.value).subscribe(res=>{
           this.toastr.success('Login Scuess');
           this.userData = res;
-          console.log(this.userData);
+          console.log("asd",this.userData);
 
         })
       }else{
@@ -66,5 +71,9 @@ export class LoginComponent implements OnInit {
     }
  }
 
-
+ getAllUsers() {
+  this.apiService.getUser().pipe(takeUntil(this.destroy$)).subscribe((users: any) => {
+      this.users = users;
+  });
+}
 }
