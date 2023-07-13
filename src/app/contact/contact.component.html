@@ -11,8 +11,9 @@
         </h4>
 
       </div>
-      <form novalidate [formGroup]="contactForm" (submit)="submitAction()">
-        <div class="row">
+      <div class="responsive-form">
+        <form novalidate [formGroup]="contactForm" (submit)="submitAction()">
+          <div class="row">
           <div class="col-sm-8 mb-2 mx-4">
             <label class="form-label">Name *</label>
             <input type="text" class="form-control " formArrayName="name" required>
@@ -30,6 +31,7 @@
           </div>
         </div>
       </form>
+    </div>
 
     </div>
   </div>
@@ -93,10 +95,8 @@
       </a>
     </div>
   </div>
-
+</div>
 
   </div>
-
-</div>
 
 <app-footer></app-footer>
