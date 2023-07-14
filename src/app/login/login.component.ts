@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public fb : FormBuilder,
-    private modalService: NgbModal,
+    public modalService: NgbModal,
     public activeModal: NgbActiveModal,
     private toastr: ToastrService,
     public service : AuthService,
