@@ -1,8 +1,9 @@
 <div class="row">
 <div class="card">
-
-  <div class="mt-3 mx-2 text-end" (click)="modalService.dismissAll('')"><i class="bi bi-x-lg"></i></div>
-        <div class="text-center">
+  <div class="text-end">
+    <button type="button" class="btn btn-secoundary" (click)="modalService.dismissAll('')"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <div class="text-center">
           <p><i class="bi bi-person-fill"></i>Login</p>
         </div>
      <form novalidate [formGroup]="userForm" (ngSubmit)="loginSubmit()">
@@ -25,12 +26,13 @@
                 <span>email is required</span>
               </div>
             </div>
+            <div class="col-sm-6">
+              <button class="btn btn-default" (click)="forgetPassword()">Forget password</button >
+            </div>
+            <div class="mb-3 mt-4 text-center">
+              <button class="btn btn-success btn-sm" type="submit">Submit</button>
+            </div>
           </div>
-        <div class="col-sm-6 p-2 mt-2 mx-2" style="padding: 10px; margin: 10px;">
-          <button class="btn btn-default btn-sm" type="button" (click)="activeModal.close()">Cancel</button>
-
-          <button class="btn btn-success btn-sm" type="submit">Submit</button>
-        </div>
       </form>
     </div>
   </div>

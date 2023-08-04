@@ -55,7 +55,9 @@
 
   <div class="row">
     <div class="card">
-      <div class="mt-3 mx-2 text-end" (click)="model.close('')"><i class="bi bi-x-lg"></i></div>
+      <div class="text-end">
+        <button type="button" class="btn btn-secoundary" (click)="model.dismiss('')"><i class="bi bi-x-lg"></i></button>
+      </div>
       <div class="col-sm-12 text-center">
         <h1><i class="bi bi-android2"></i>DevlopersTags</h1>
       </div>
@@ -85,7 +87,10 @@
 
   <div class="row">
     <div class="card">
-      <div class="mt-3 mx-2 text-end" (click)="model.close('')"><i class="bi bi-x-lg"></i></div>
+      <div class="text-end">
+        <button type="button" class="btn btn-secoundary" (click)="model.dismiss('')"><i class="bi bi-x-lg"></i></button>
+      </div>
+
       <div class="col-sm-12 mt-4 mb-4">
         <input type="text" class="form-control" name="" id="" [placeholder]="'Search Here..'" required>
       </div>
@@ -102,7 +107,10 @@
 
   <div class="row ">
     <div class="card ">
-      <div class="mt-3 mx-2 text-end" (click)="model.close('')"><i class="bi bi-x-lg"></i></div>
+      <div class="text-end">
+        <button type="button" class="btn btn-secoundary" (click)="model.dismiss('')"><i class="bi bi-x-lg"></i></button>
+      </div>
+
       <div class="col-sm-5 mb-4 mt-4 dropdown">
 
         <button mat-menu-item routerLink="/ios" ngbTooltip="Ios"><i class="bi bi-apple"></i>IOS</button>

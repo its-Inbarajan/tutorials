@@ -6,12 +6,13 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth.service';
 import { Subscription, interval ,Observable, takeUntil, Subject} from 'rxjs';
 import { ApiService } from '../service/api.service';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+
 })
 
 export class LoginComponent implements OnInit {
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit {
   users: any[] = [];
   sub : any;
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+  public user : any
+
 
   constructor(
     public fb : FormBuilder,
@@ -39,10 +43,8 @@ export class LoginComponent implements OnInit {
       email:['',
       [Validators.required,
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-
         password : ['', Validators.compose([Validators.required])]
-    })
-
+    });
   }
 
   get Form(){
@@ -55,25 +57,30 @@ export class LoginComponent implements OnInit {
 
   public loginSubmit(){
     try {
-      if(this.userForm.valid){
-        this.service.getByCode(this.userForm.value).subscribe(res=>{
+      if(this.userForm.status === 'VALID'){
+        this.service.getUser(this.userForm).pipe(takeUntil(this.destroy$)).subscribe(data=>{
+          console.log(data);
           this.toastr.success('Login Scuess');
-          this.userData = res;
-          console.log("asd",this.userData);
-
         })
       }else{
         this.toastr.warning('Please fill the field')
       }
     } catch (error) {
       console.log("err", error);
-
     }
  }
 
- getAllUsers() {
-  this.apiService.getUser().pipe(takeUntil(this.destroy$)).subscribe((users: any) => {
-      this.users = users;
+
+ forgetPassword(){
+  this.modalService.open(ForgetPasswordComponent,{
+    centered : true,
+      size : "md"
   });
-}
+ }
+
+//  loginSubmit() {
+//   this.apiService.getUser().pipe(takeUntil(this.destroy$)).subscribe((users: any) => {
+//       this.users = users;
+//   });
+// }
 }

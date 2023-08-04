@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getApi();
+    // this.getApi();
     // this.fetchItems();
   }
 
@@ -49,17 +49,17 @@ export class HomeComponent implements OnInit {
   //   // Set isFetching to false when the API call is complete
   // }
 
- public getApi(){
-      let headers = new HttpHeaders({});
+//  public getApi(){
+//       let headers = new HttpHeaders({});
 
 
-        this.http.get('https://catfact.ninja/fact',{
-        headers : headers
-      }).subscribe(data =>{
-        console.log(data);
+//         this.http.get('https://catfact.ninja/fact',{
+//         headers : headers
+//       }).subscribe(data =>{
+//         console.log(data);
 
-      })
-  }
+//       })
+//   }
 
 
 

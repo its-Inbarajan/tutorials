@@ -6,10 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  apiUrl = 'https://localhost:4200/user'
+  apiUrl = 'https://localhost:4200/api/user'
 
-  constructor(private http : HttpClient) { }
-
+  constructor(private http : HttpClient) {}
 
   getAll(){
     return this.http.get(this.apiUrl);
@@ -19,6 +18,9 @@ export class AuthService {
   }
 
   getRegistraion(data :any){
+    return this.http.get(this.apiUrl, data)
+  }
+  getUser(data :any){
     return this.http.get(this.apiUrl, data)
   }
 

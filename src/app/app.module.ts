@@ -28,7 +28,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { ReadingAreaComponent } from './readingArea/readingArea.component';
-import { faInfinity } from '@fortawesome/free-solid-svg-icons';
+import { ForgetPasswordComponent } from './login/forget-password/forget-password.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { faInfinity } from '@fortawesome/free-solid-svg-icons';
       AndroidComponent,
       NavigationComponent,
       ReadingAreaComponent,
+      ForgetPasswordComponent
 
    ],
   imports: [

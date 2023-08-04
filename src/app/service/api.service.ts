@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http : HttpClient) { }
 
   getUser(){
-    return this.http.get(this.roter + '/user');
+    return this.http.get('http://localhost:4200/user');
   }
   // getApi(){
   //   return this.http.get('https://catfact.ninja/fact')
@@ -21,4 +21,11 @@ export class ApiService {
     return this.http.post(this.roter + '/user', {user});
   }
 
+
+  getForgetPws(user:any){
+    return  this.http.post(this.roter + '/forgor_pass' ,{user})
+
+    // return this.http.get('http://localhost:4200/user/')
+
+  }
 }
