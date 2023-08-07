@@ -57,18 +57,56 @@ export class LoginComponent implements OnInit {
 
   public loginSubmit(){
     try {
-      if(this.userForm.status === 'VALID'){
-        this.service.getUser(this.userForm).pipe(takeUntil(this.destroy$)).subscribe(data=>{
-          console.log(data);
-          this.toastr.success('Login Scuess');
-        })
-      }else{
+        if(this.userForm.status === 'VALID')  {
+
+          this.service.login(this.userForm).pipe(takeUntil(this.destroy$)).subscribe(data=>{
+
+            console.log(data);
+
+            this.toastr.success('Login Scuess');
+          })
+        }
+      else{
         this.toastr.warning('Please fill the field')
       }
     } catch (error) {
       console.log("err", error);
     }
- }
+
+    // if(this.userForm.status === 'VALID'){
+      // console.log("incoming");
+      // async function login(email : string, password : string): Promise<any> {
+      //   const apiUrl = 'https://localhost:4200/api/login'
+
+      //   const reqBody = {
+      //     email : email,
+      //     password : password
+      //   }
+      //   console.log(reqBody);
+      //   try {
+      //     const response = await fetch(apiUrl,{
+      //       method : 'POST',
+      //       headers:{
+      //           'Content-type' : 'application/json',
+      //       },
+      //       body : JSON.stringify(reqBody)
+      //     });
+
+      //     if(!response.ok){
+      //       throw new Error('Login field');
+      //     }
+      //     const data = await response.json();
+      //     const token = data.token; // Replace 'token' with the actual property name in the response
+
+      //     return token;
+      //   } catch (error) {
+      //     console.log("error" + error);
+
+      //   }
+      // }
+
+//  }
+}
 
 
  forgetPassword(){
