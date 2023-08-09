@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  roter = '/api';
+  roter = 'http://localhost:4200/api';
   Object : any
   constructor(private http : HttpClient) { }
 
@@ -22,10 +23,13 @@ export class ApiService {
   }
 
 
-  getForgetPws(user:any){
-    return  this.http.post(this.roter + '/forgor_pass' ,{user})
+  getForgetPws(user :any): Observable<any>{
+    return  this.http.get(this.roter + '/forgot_pass');
 
     // return this.http.get('http://localhost:4200/user/')
-
   }
+
+  // getForgetPws(url: any) : Observable<any>{
+  //   return this.http.get(url);
+  // }
 }

@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn 
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -14,8 +15,10 @@ import { AuthService } from 'src/app/service/auth.service';
 export class ForgetPasswordComponent implements OnInit {
 
   forgetPasswordForm !: FormGroup;
-
-
+  user : any =[{}]
+  // subscription = new Subscription();
+  // url = 'http://localhost:4200/api'
+  // userData: any = [{}];
   constructor(
     public fb : FormBuilder,
     public modalService: NgbModal,
@@ -28,10 +31,10 @@ export class ForgetPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.forgetPasswordForm = this.fb.group({
-      otp:[],
+      oldPassword : [],
       newPassword :[],
       confirmPassowrd :[]
-  })
+  });
   }
 
 
@@ -50,27 +53,24 @@ export class ForgetPasswordComponent implements OnInit {
   //   return null
   // }
 
-  forgetpwsSubmit(event :any){
-
-    // let password = control.get('newPassword');
-
-    // let confirmPassowrd = control.get('confirmPassword');
-
-    // if(password && confirmPassowrd && password !== confirmPassowrd){
-    //   console.log('works');
-
-    //   this.toastr.warning('Password does\'t Match');
-
+  forgetpwsSubmit(url :any){
       if(this.forgetPasswordForm.status === 'VALID'){
         try {
           this.apiService.getForgetPws(this.forgetPasswordForm.value).subscribe(res =>{
-
+            console.log('incomisg',this.user);
+            console.log(res);
+            console.log(this.forgetPasswordForm.value);
+            this.toastr.success('Password change successfilly')
           })
         } catch (error) {
           console.log(error);
         }
       }
-    // }
+    // this.subscription.add(
+    //   this.apiService.getForgetPws(url).subscribe(res =>{
+    //     this.userData = res['data'];
+    //   })
+    // )
   }
 
 }

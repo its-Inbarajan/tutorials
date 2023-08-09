@@ -36,7 +36,7 @@ export class ContactComponent implements OnInit {
     this.contactForm = this.formBulider.group({
       name : [''],
       email : [''],
-      message : ['  ']
+      message : ['']
     })
 
 
@@ -47,9 +47,10 @@ export class ContactComponent implements OnInit {
   }
 
    public submitAction(){
-    if(this.contactForm.valid){
-
-      this.toastr.success('Sending Scuess');
+    if(this.contactForm.status === 'VALID'){
+      this.toastr.success('Sending Scuessfull');
+    }else{
+      this.toastr.warning('Contact field required')
     }
   }
 
